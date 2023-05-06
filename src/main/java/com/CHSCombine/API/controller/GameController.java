@@ -15,7 +15,7 @@ public class GameController {
     private GameService service;
 
 
-    @PostMapping("/addGame/{id}")
+    @PostMapping("/addGame")
     public Game addProduct(@RequestBody Game game) {
         return service.saveGame(game);
     }
@@ -26,7 +26,7 @@ public class GameController {
     }
 
     @GetMapping("/gameById/{id}")
-    public Game findProductById(@PathVariable int id) {
+    public Game findProductById(@PathVariable Integer id) {
         return service.getGameById(id);
     }
 

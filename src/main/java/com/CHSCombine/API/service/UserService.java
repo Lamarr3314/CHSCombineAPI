@@ -26,12 +26,16 @@ public class UserService {
         return repository.findAll();
     }
 
-    public User getUserById(int id) {
+    public User getUserById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
 
     public User getUserByName(String name) {
         return repository.findByName(name);
+    }
+
+    public void tallyUserScores(){
+        repository.tallyUserScores();
     }
 
     //TODO implement additional methods to get if based on gender and score

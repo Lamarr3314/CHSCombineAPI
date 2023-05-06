@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,20 +16,14 @@ import java.util.Set;
 @Table(name = "game_table ")
 public class Game {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
-    private User user;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "game_seq")
+    @SequenceGenerator(name = "game_seq", sequenceName = "game_seq", allocationSize = 1)
+    private Integer id;
 
     private String name;
-    private int score;
+    private Integer score;
     private String measure;
-    private String EntryTime;
-
-    public void setUser(User user){
-        this.user = user;
-    }
+    private String entry_time;
+    private Integer user_id;
 
 }

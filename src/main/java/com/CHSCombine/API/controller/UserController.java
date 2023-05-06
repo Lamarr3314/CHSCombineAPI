@@ -18,6 +18,12 @@ public class UserController {
         return service.saveUser(User);
     }
 
+    @PostMapping("/tallyScores")
+    public void tallyScores() {
+        service.tallyUserScores();
+    }
+
+
 
     @GetMapping("/users")
     public List<User> findAllProducts() {
@@ -25,7 +31,7 @@ public class UserController {
     }
 
     @GetMapping("/UserById/{id}")
-    public User findProductById(@PathVariable int id) {
+    public User findProductById(@PathVariable Integer id) {
         return service.getUserById(id);
     }
 

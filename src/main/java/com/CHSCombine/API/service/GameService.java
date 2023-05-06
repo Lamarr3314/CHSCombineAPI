@@ -29,13 +29,14 @@ public class GameService {
         return repository.findAll();
     }
 
-    public Game getGameById(int id){
+    public Game getGameById(Integer id){
         return repository.findById(id).orElseThrow();
     }
 
     public Game getGameByName(String name){
         return repository.findByName(name);
     }
+
 
     //TODO implement additional methods to get if based on gender and score
 //    @Query()
