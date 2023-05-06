@@ -15,6 +15,7 @@ import java.util.List;
 public class GameService {
     @Autowired
     private GameRepository repository;
+    private UserService userService;
 
     public Game saveGame(Game game) {
         return repository.save(game);

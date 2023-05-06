@@ -15,7 +15,7 @@ public class GameController {
     private GameService service;
 
 
-    @PostMapping("/addGame")
+    @PostMapping("/addGame/{id}")
     public Game addProduct(@RequestBody Game game) {
         return service.saveGame(game);
     }

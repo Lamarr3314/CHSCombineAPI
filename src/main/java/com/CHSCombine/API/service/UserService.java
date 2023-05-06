@@ -22,18 +22,19 @@ public class UserService {
         return repository.saveAll(users);
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return repository.findAll();
     }
 
-    public User getUserById(int id){
+    public User getUserById(int id) {
         return repository.findById(id).orElseThrow();
     }
 
-    public User getUserByName(String name){
+    public User getUserByName(String name) {
         return repository.findByName(name);
     }
 
     //TODO implement additional methods to get if based on gender and score
+    //TODO think of maybe making only one service, that may allow to create a way to add a game to a user
 //    @Query()
 }
