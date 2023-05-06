@@ -13,28 +13,24 @@ public class UserController {
     private UserService service;
 
 
-    @PostMapping("/addProduct")
+    @PostMapping("/addUser")
     public User addProduct(@RequestBody User User) {
         return service.saveUser(User);
     }
 
-    @PostMapping("/addProducts")
-    public List<User> addProducts(@RequestBody List<User> products) {
-        return service.saveUsers(products);
-    }
 
-    @GetMapping("/products")
+    @GetMapping("/users")
     public List<User> findAllProducts() {
         return service.getUsers();
     }
 
-    @GetMapping("/productById/{id}")
+    @GetMapping("/UserById/{id}")
     public User findProductById(@PathVariable int id) {
         return service.getUserById(id);
     }
 
 
-    @GetMapping("/user/{name}")
+    @GetMapping("/UserByName/{name}")
     public User findProductByName(@PathVariable String name) {
         return service.getUserByName(name);
     }

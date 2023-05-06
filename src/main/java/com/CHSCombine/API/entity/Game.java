@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "game_table ")
 public class Game {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String name;

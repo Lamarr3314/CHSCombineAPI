@@ -22,5 +22,9 @@ public class User {
     private String name;
     private String gender;
 
+    public int getId(){
+        return id;
+    }
+
 
 }
