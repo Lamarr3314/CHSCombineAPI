@@ -18,9 +18,6 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    @OneToMany(mappedBy = "user")
-    private Set<Game> games= new HashSet<>();
-
 
     private String name;
     private String gender;
