@@ -44,4 +44,10 @@ public class UserController {
     public List<User> findProductById(@PathVariable String gender, @PathVariable String event) {
         return service.filterLeaders(gender, event);
     }
+
+    @GetMapping("/filterLeaderGender/{gender}")
+    public List<User> filterLeaderGender(@PathVariable String gender) {
+        return service.filterLeaderGender(gender);
+    }
+
 }

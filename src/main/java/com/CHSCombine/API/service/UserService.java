@@ -41,6 +41,8 @@ public class UserService {
     public List<User> filterLeaders(String gender, String name){
         return repository.filterLeaders(gender, name);
     }
+
+    public List<User> filterLeaderGender(String gender){return repository.filterLeaderGender(gender);}
     public String getNameById(Integer id){return repository.findById(id).orElseThrow().getName();}
 
     public User getUserByName(String name) {
@@ -51,7 +53,5 @@ public class UserService {
         repository.tallyUserScores();
     }
 
-    //TODO implement additional methods to get if based on gender and score
-    //TODO think of maybe making only one service, that may allow to create a way to add a game to a user
-//    @Query()
+
 }

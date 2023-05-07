@@ -46,6 +46,5 @@ public class GameService {
     }
 
 
-    //TODO implement additional methods to get if based on gender and score
-//    @Query()
+
 }

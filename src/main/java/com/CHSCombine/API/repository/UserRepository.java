@@ -25,4 +25,11 @@ public interface UserRepository extends JpaRepository<User, Integer> {
             "WHERE ut.gender = :gender AND gt.name = :event\n" +
             "ORDER BY gt.score DESC", nativeQuery = true)
     List<User> filterLeaders(@Param("gender") String gender, @Param("event") String event);
+
+    @Modifying
+    @Query(value = "SELECT id, gender, name, score\n" +
+            "FROM user_table \n" +
+            "WHERE gender = :gender\n" +
+            "ORDER BY score DESC", nativeQuery = true)
+    List<User> filterLeaderGender(@Param("gender") String gender);
 }
