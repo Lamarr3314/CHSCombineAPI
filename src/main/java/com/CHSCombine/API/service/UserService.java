@@ -7,7 +7,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -29,6 +29,19 @@ public class UserService {
     public User getUserById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
+
+    public List<User> getUsersById(List<Integer> id) {
+        List<User> list = new ArrayList<>();
+        for(Integer i: id){
+            list.add(repository.findById(i).orElseThrow());
+        }
+        return list;
+    }
+
+    public List<User> filterLeaders(String gender, String name){
+        return repository.filterLeaders(gender, name);
+    }
+    public String getNameById(Integer id){return repository.findById(id).orElseThrow().getName();}
 
     public User getUserByName(String name) {
         return repository.findByName(name);

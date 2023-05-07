@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 public class UserController {
-@Autowired
+    @Autowired
     private UserService service;
 
 
@@ -22,7 +22,6 @@ public class UserController {
     public void tallyScores() {
         service.tallyUserScores();
     }
-
 
 
     @GetMapping("/users")
@@ -41,6 +40,8 @@ public class UserController {
         return service.getUserByName(name);
     }
 
-
-
+    @GetMapping("/filterLeaders/{gender}/{event}")
+    public List<User> findProductById(@PathVariable String gender, @PathVariable String event) {
+        return service.filterLeaders(gender, event);
+    }
 }

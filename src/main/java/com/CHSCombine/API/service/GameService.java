@@ -25,15 +25,23 @@ public class GameService {
         return repository.saveAll(game);
     }
 
-    public List<Game> getGames(){
+    public List<Game> getGames() {
         return repository.findAll();
     }
 
-    public Game getGameById(Integer id){
+    public Game getGameById(Integer id) {
         return repository.findById(id).orElseThrow();
     }
 
-    public Game getGameByName(String name){
+    public List<Game> getGameByUserId(Integer id) {
+        return repository.getGameByUserId(id);
+    }
+
+    public Integer getGameCount(Integer id, String event) {
+        return repository.getGameCount(id, event);
+    }
+
+    public Game getGameByName(String name) {
         return repository.findByName(name);
     }
 

@@ -30,6 +30,16 @@ public class GameController {
         return service.getGameById(id);
     }
 
+    @GetMapping("/gameByUserId/{id}")
+    public List<Game> findGamesByUserId(@PathVariable Integer id) {
+        return service.getGameByUserId(id);
+    }
+
+    @GetMapping("/gameCount/{id}/{event}")
+    public Integer gameCount(@PathVariable Integer id, @PathVariable String event) {
+        return service.getGameCount(id, event);
+    }
+
 
     @GetMapping("/game/{name}")
     public Game findProductByName(@PathVariable String name) {
