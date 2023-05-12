@@ -22,10 +22,18 @@ public interface GameRepository extends JpaRepository<Game, Integer> {
             nativeQuery = true)
     List<Game> getGameByUserId(@Param("id") Integer id);
 
+    @Modifying
+    @Query(value = "SELECT gt.id, ut.gender, ut.name, gt.score, gt.measure, gt.entry_time, ut.id AS user_id\n" +
+            "FROM user_table ut\n" +
+            "LEFT JOIN game_table gt ON ut.id = gt.user_id\n" +
+            "WHERE ut.gender = :gender AND gt.name = :event\n" +
+            "ORDER BY gt.score DESC", nativeQuery = true)
+    List<Game> filterLeaders(@Param("gender") String gender, @Param("event") String event);
+
 
     @Query(value = "SELECT COUNT(*)\n" +
             "FROM game_table\n" +
             "WHERE user_id = :id AND name = :event",
             nativeQuery = true)
-    Integer getGameCount(@Param("id") Integer id, @Param("event")String event);
+    Integer getGameCount(@Param("id") Integer id, @Param("event") String event);
 }

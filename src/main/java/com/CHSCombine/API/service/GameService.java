@@ -45,6 +45,9 @@ public class GameService {
         return repository.findByName(name);
     }
 
+    public List<Game> filterLeaders(String gender, String name) {
+        return repository.filterLeaders(gender, name);
+    }
 
 
 }

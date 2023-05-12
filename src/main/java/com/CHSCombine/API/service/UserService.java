@@ -1,5 +1,6 @@
 package com.CHSCombine.API.service;
 
+import com.CHSCombine.API.entity.Game;
 import com.CHSCombine.API.entity.User;
 import com.CHSCombine.API.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,11 +39,7 @@ public class UserService {
         return list;
     }
 
-    public List<User> filterLeaders(String gender, String name){
-        return repository.filterLeaders(gender, name);
-    }
 
-    public List<User> filterLeaderGender(String gender){return repository.filterLeaderGender(gender);}
     public String getNameById(Integer id){return repository.findById(id).orElseThrow().getName();}
 
     public User getUserByName(String name) {
@@ -53,5 +50,7 @@ public class UserService {
         repository.tallyUserScores();
     }
 
-
+    public List<User> filterLeaderGender(String gender) {
+        return repository.filterLeaderGender(gender);
+    }
 }

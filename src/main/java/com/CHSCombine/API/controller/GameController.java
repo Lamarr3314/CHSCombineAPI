@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@ResponseBody
 public class GameController {
     @Autowired
     private GameService service;
+    @CrossOrigin(origins = "http://localhost:5500")
 
 
     @PostMapping("/addGame")
@@ -46,6 +48,9 @@ public class GameController {
         return service.getGameByName(name);
     }
 
-
+    @GetMapping("/filterLeaders/{gender}/{event}")
+    public List<Game> findProductById(@PathVariable String gender, @PathVariable String event) {
+        return service.filterLeaders(gender, event);
+    }
 
 }
