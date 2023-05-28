@@ -23,6 +23,8 @@ public class User {
     private String gender;
     @Column(name = "score")
     private Integer score;
+    private String school_id;
+    private Integer has_permission_slip;
 
     public int getId(){
         return id;

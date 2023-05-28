@@ -24,7 +24,7 @@ public class UserService {
     }
 
     public List<User> getUsers() {
-        return repository.findAll();
+        return repository.allUsers();
     }
 
     public User getUserById(Integer id) {

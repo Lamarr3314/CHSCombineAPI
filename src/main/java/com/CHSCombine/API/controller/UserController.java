@@ -25,6 +25,10 @@ public class UserController {
         service.tallyUserScores();
     }
 
+    @GetMapping("/")
+    public String returnMsg() {
+        return "Hello World";
+    }
 
     @GetMapping("/users")
     public List<User> findAllProducts() {

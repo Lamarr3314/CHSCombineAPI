@@ -20,11 +20,16 @@ public interface UserRepository extends JpaRepository<User, Integer> {
     void tallyUserScores();
 
 
-
     @Modifying
-    @Query(value = "SELECT id, gender, name, score\n" +
+    @Query(value = "SELECT id, gender, name, score, email, has_permission_slip\n" +
             "FROM user_table \n" +
             "WHERE gender = :gender\n" +
             "ORDER BY score DESC", nativeQuery = true)
     List<User> filterLeaderGender(@Param("gender") String gender);
+
+    @Modifying
+    @Query(value = "SELECT id, gender, name, score, email, has_permission_slip\n" +
+            "FROM user_table\n" +
+            "ORDER BY id DESC", nativeQuery = true)
+    List<User> allUsers();
 }
